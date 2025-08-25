@@ -1,2 +1,3 @@
-# DMTP
-pagina de asesorías gastronómicas 
+# DMTP sitio
+
+Archivos del sitio web DMTP.
