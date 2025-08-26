@@ -40,13 +40,10 @@
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
-    // Claves EmailJS (reemplazar)
     const EMAILJS_PUBLIC_KEY = "REEMPLAZAR_EMAILJS_PUBLIC_KEY";
     const EMAILJS_SERVICE_ID = "REEMPLAZAR_SERVICE_ID";
     const EMAILJS_TEMPLATE_ID = "REEMPLAZAR_TEMPLATE_ID";
-    // Webhook opcional
-    const NOTIFY_WEBHOOK_URL = "REEMPLAZAR_WEBHOOK_URL";
-    // Destinatario fijo (tu correo)
+    const NOTIFY_WEBHOOK_URL = "REEMPLAZAR_WEBHOOK_URL"; // opcional
     const TO_EMAIL = "cristobal29.ct@gmail.com";
 
     document.addEventListener("DOMContentLoaded", () => {
@@ -64,7 +61,6 @@
       s.textContent = msg;
       s.className = "status " + (cls||"").trim();
     }
-
     function showDebug(obj){
       const dbg = document.getElementById("debug");
       dbg.style.display = "block";
@@ -97,7 +93,6 @@ ${mensaje}
 Enviado desde DMTP.cl — ${new Date().toLocaleString()}`;
 
       try {
-        // EmailJS con destinatario fijo
         if(EMAILJS_PUBLIC_KEY && !EMAILJS_PUBLIC_KEY.startsWith("REEMPLAZAR")){
           const emailParams = { to_email: TO_EMAIL, nombre, telefono, correo, motivo, mensaje, cuerpo, timestamp };
           const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailParams);
@@ -106,7 +101,6 @@ Enviado desde DMTP.cl — ${new Date().toLocaleString()}`;
           showDebug("EmailJS no configurado: reemplaza tus claves PUBLIC_KEY/SERVICE_ID/TEMPLATE_ID");
         }
 
-        // Webhook opcional
         if(NOTIFY_WEBHOOK_URL && !NOTIFY_WEBHOOK_URL.startsWith("REEMPLAZAR")){
           const payload = { fuente: "DMTP sitio web", to_email: TO_EMAIL, nombre, telefono, correo, motivo, mensaje, cuerpo, timestamp };
           try {
