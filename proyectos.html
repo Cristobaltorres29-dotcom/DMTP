@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Proyectos — DMTP</title>
-  <meta name="description" content="Cenas de maridaje clandestinas con productos locales: experiencias íntimas y elegantes por DMTP." />
+  <meta name="description" content="Matrimonios, Platos del Chef y Cenas de Maridajes por DMTP. Experiencias con foco en producto local." />
   <meta property="og:title" content="Proyectos — DMTP" />
-  <meta property="og:description" content="Cenas de maridaje clandestinas con productos locales: experiencias íntimas y elegantes." />
+  <meta property="og:description" content="Matrimonios, recetas del chef y agenda de cenas de maridaje." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0b0b0b" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,19 +25,25 @@
     .brand-dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--accent))}
     .links a{padding:10px 12px;border-radius:10px;color:var(--text)}
     .links a:hover{background:rgba(255,255,255,.06)}
-    .cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#0a0a0a;padding:10px 14px;border-radius:12px;font-weight:700}
+    .cta, .btn{
+      display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--brand),var(--accent));
+      color:#0a0a0a;padding:10px 14px;border-radius:12px;font-weight:700;border:none;cursor:pointer
+    }
     h1{font-size:clamp(28px,4vw,46px);line-height:1.2;margin:20px 0}
     h2{font-size:clamp(22px,3vw,30px);margin:14px 0}
     .lead{font-size:18px;color:#c9cccf;max-width:900px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .grid-2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
     .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06)}
-    .caption{margin-top:8px;color:#c9cccf}
-    .badge{display:inline-block;background:rgba(255,255,255,.08);padding:6px 10px;border-radius:999px;font-size:12px;color:#c7cacf}
-    .toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
-    .toolbar a{background:var(--accent);color:#0b0b0b;padding:8px 12px;border-radius:10px;font-weight:700}
+    .meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;color:#c9cccf;font-size:14px}
+    .toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:12px 0}
+    .note{color:#9aa0a6;font-size:13px}
+    table{width:100%;border-collapse:collapse}
+    th,td{padding:10px;border-bottom:1px solid rgba(255,255,255,.08);text-align:left}
+    th{color:#c9cccf;font-weight:700}
     footer{margin:36px 0 20px;color:#9aa0a6;font-size:14px}
-    @media (max-width:900px){ .grid-3{grid-template-columns:1fr 1fr} }
-    @media (max-width:640px){ .grid-3{grid-template-columns:1fr} .links{display:none} }
+    @media (max-width:900px){ .grid-3{grid-template-columns:1fr 1fr} .grid-2{grid-template-columns:1fr} }
+    @media (max-width:640px){ .links{display:none} .grid-3{grid-template-columns:1fr} }
   </style>
 </head>
 <body>
@@ -55,46 +61,120 @@
   </header>
 
   <main class="wrap">
-    <h1>Proyectos — Cenas de maridaje</h1>
-    <p class="lead">Diseñamos <strong>experiencias clandestinas</strong> en locaciones secretas: <strong>5 tiempos</strong> con maridaje, relatos que conectan territorio y producto, y una estética sobria para que el protagonista sea el <strong>origen local</strong>.</p>
+    <h1>Proyectos</h1>
+    <p class="lead">Tres líneas para vivir y crear gastronomía con identidad local: <strong>Matrimonios</strong>, <strong>Platos del chef</strong> y <strong>Cenas de maridajes</strong>.</p>
 
-    <div class="toolbar">
-      <a href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank">Agendar llamada</a>
-      <a href="https://link.mercadopago.cl/dmtp" target="_blank">Pagar reserva</a>
-      <a href="contacto.html">Escríbenos</a>
-    </div>
+    <section class="grid-3" style="margin-top:12px">
+      <article class="card" id="matrimonios">
+        <img src="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1600&auto=format&fit=crop" alt="Banquete de matrimonio elegante" />
+        <h2 style="margin:10px 0">Matrimonios</h2>
+        <p>Banquetería con sello DMTP: menú territorial, maridajes y relato culinario. Desde coctelería hasta cena de gala.</p>
+        <div class="meta">
+          <span>Capacidad: 40–200+</span><span>Formatos: coctel, cena, estaciones</span>
+        </div>
+        <div class="toolbar">
+          <a class="btn" href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank" rel="noopener">Agendar reunión</a>
+          <a class="btn" href="contacto.html">Escríbenos</a>
+        </div>
+        <p class="note">Tip: agenda una llamada de 15–20 min para definir concepto, locación y presupuesto.</p>
+      </article>
 
-    <div class="grid-3">
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1549887534-1541e9326608?q=80&w=1600&auto=format&fit=crop" alt="Ostras y maridaje costero" />
-        <div class="caption"><span class="badge">Pacífico chileno</span><br>Ostras, locos y pescados azules con vinos costeros. Frescura, yodo y textura.</div>
+      <article class="card" id="platos">
+        <img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1600&auto=format&fit=crop" alt="Plato del chef" />
+        <h2 style="margin:10px 0">Platos del chef</h2>
+        <p>Recetas de temporada que publicamos <strong>2 veces por semana</strong>. Técnicas simples, producto local y foco en sabor.</p>
+        <div class="toolbar">
+          <a class="btn" href="#recetas">Ver recetas</a>
+          <a class="btn" href="contacto.html">Sugerir receta</a>
+        </div>
+        <p class="note">Puedes subir tus fotos y comentarios por Instagram <a href="https://www.instagram.com/dmtp_oficial?igsh=cnY2MTN3aWJzZHNn" target="_blank">@dmtp_oficial</a>.</p>
       </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1600&auto=format&fit=crop" alt="Huerta estacional" />
-        <div class="caption"><span class="badge">Huerta & estación</span><br>Verduras de temporada, hierbas nativas y fermentos suaves.</div>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1514511547117-f9c2f2b1a3f5?q=80&w=1600&auto=format&fit=crop" alt="Cordero a las brasas" />
-        <div class="caption"><span class="badge">Cordillera & fuego</span><br>Cortes largos, brasas y maridajes de altura.</div>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop" alt="Quesos y charcutería local" />
-        <div class="caption"><span class="badge">Lácteos & charcutería</span><br>Degustaciones con pequeños productores del sur.</div>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?q=80&w=1600&auto=format&fit=crop" alt="Vino en copa" />
-        <div class="caption"><span class="badge">Vinos de autor</span><br>Etiquetas de baja intervención y relatos del viñedo.</div>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1528017482769-62145720b78e?q=80&w=1600&auto=format&fit=crop" alt="Mesa íntima" />
-        <div class="caption"><span class="badge">Mesa secreta</span><br>Grupos pequeños, dirección de arte y música curada.</div>
-      </article>
-    </div>
 
-    <div class="toolbar">
-      <a href="planes.html">Ver planes de asesoría</a>
-      <a href="index.html">Volver a inicio</a>
-    </div>
+      <article class="card" id="maridajes">
+        <img src="https://images.unsplash.com/photo-1528017482769-62145720b78e?q=80&w=1600&auto=format&fit=crop" alt="Cena de maridaje" />
+        <h2 style="margin:10px 0">Cenas de maridajes</h2>
+        <p>Experiencias clandestinas en locaciones secretas: <strong>5 tiempos</strong> con vinos de autor y storytelling.</p>
+        <div class="toolbar">
+          <a class="btn" href="#agenda-cenas">Fechas disponibles</a>
+          <a class="btn" href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank" rel="noopener">Agendar consulta</a>
+        </div>
+        <p class="note">Cupos limitados. Publicamos nuevas fechas y temáticas por temporada.</p>
+      </article>
+    </section>
+
+    <section id="recetas" style="margin-top:28px">
+      <h2>Platos del chef — Recetas recientes</h2>
+      <p class="note">Agrega una receta nueva duplicando un bloque <code>&lt;article class=&quot;card receta&quot;&gt;</code> y cambiando título, fecha, imagen y pasos.</p>
+      <div class="grid-2">
+        <article class="card receta">
+          <img src="https://images.unsplash.com/photo-1466637574441-749b8f19452f?q=80&w=1600&auto=format&fit=crop" alt="Tomates asados con hierbas" />
+          <h3 style="margin:10px 0">Tomates asados & hierbas del patio</h3>
+          <p class="note">Publicada: 25/08/2025 • Estacional: verano</p>
+          <p>Dulzor natural y acidez brillante. Ideal como entrada tibia.</p>
+          <ul>
+            <li>Tomates maduros, aceite de oliva, sal de mar.</li>
+            <li>Hierbas: orégano, tomillo, ciboulette.</li>
+            <li>Horno fuerte 12–15 min; terminar con gotas de vinagre.</li>
+          </ul>
+        </article>
+        <article class="card receta">
+          <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop" alt="Queso de cabra con miel y nueces" />
+          <h3 style="margin:10px 0">Queso de cabra, miel y nueces al horno</h3>
+          <p class="note">Publicada: 22/08/2025 • Estacional: otoño</p>
+          <p>Textura cremosa con crocante de frutos secos; lista en 10 minutos.</p>
+          <ul>
+            <li>Rulo de cabra, miel de ulmo, nueces tostadas.</li>
+            <li>Hornear 6–8 min; servir con pan de masa madre.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="agenda-cenas" style="margin-top:28px">
+      <h2>Cenas de maridajes — Próximas fechas</h2>
+      <p class="note">Edita las filas de la tabla para actualizar fechas, temática y cupos.</p>
+      <div class="card">
+        <table>
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Temática</th>
+              <th>Productos</th>
+              <th>Cupos</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>06/09/2025</td>
+              <td>Pacífico chileno</td>
+              <td>Ostras, locos, pescados azules</td>
+              <td>12</td>
+              <td><a class="btn" href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank" rel="noopener">Agendar consulta</a></td>
+            </tr>
+            <tr>
+              <td>20/09/2025</td>
+              <td>Huerta & estación</td>
+              <td>Verduras de temporada, hierbas nativas</td>
+              <td>10</td>
+              <td><a class="btn" href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank" rel="noopener">Agendar consulta</a></td>
+            </tr>
+            <tr>
+              <td>04/10/2025</td>
+              <td>Cordillera & fuego</td>
+              <td>Cortes largos, brasas, vinos de altura</td>
+              <td>14</td>
+              <td><a class="btn" href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank" rel="noopener">Agendar consulta</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="toolbar" style="margin-top:12px">
+        <a class="btn" href="index.html">Volver a inicio</a>
+        <a class="btn" href="planes.html">Ver asesorías</a>
+        <a class="btn" href="contacto.html">Contacto</a>
+      </div>
+    </section>
   </main>
 
   <footer class="wrap" style="margin-top:20px">

@@ -5,7 +5,7 @@ Este repositorio contiene el sitio web de **DMTP** publicado en GitHub Pages.
 ## Archivos
 - `index.html` — Inicio (historia + carrusel + accesos rápidos)
 - `planes.html` — Asesorías (Basic, Pro, Master, precios y enlaces)
-- `proyectos.html` — Proyectos (cenas de maridaje, galería, CTA)
+- `proyectos.html` — Proyectos (Matrimonios, Platos del chef, Cenas de maridajes con agenda)
 - `contacto.html` — Contacto (correo, WhatsApp, Instagram y formulario)
 
 ## Publicar en GitHub Pages
