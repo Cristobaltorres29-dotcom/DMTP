@@ -28,11 +28,114 @@
     .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.08);margin-bottom:20px}
     form{display:grid;gap:14px}
     label{font-weight:600}
-    input,textarea{padding:10px;border-radius:10px;border:none;background:#1f1f1f;color:#e8eaed;font-size:15px}
-    textarea{min-height:120px;resize:vertical}
+    input,textarea,select{padding:10px;border-radius:10px;border:none;background:#1f1f1f;color:#e8eaed;font-size:15px}
+    textarea{min-height:140px;resize:vertical}
     button{background:linear-gradient(135deg,var(--brand),var(--accent));color:#0b0b0b;font-weight:700;border:none;padding:12px;border-radius:12px;cursor:pointer}
+    .status{margin-top:8px;font-size:14px}
+    .ok{color:#a3e635}.err{color:#ff7b7b}
+    .debug{font-family:ui-monospace,Consolas,monospace;font-size:12px;background:#0f0f0f;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px;color:#c9cccf;display:none;white-space:pre-wrap}
+    .toggle-debug{background:rgba(255,255,255,.08);color:#c9cccf;border:none;padding:6px 10px;border-radius:8px;cursor:pointer;font-size:12px}
     footer{margin:36px 0 20px;color:#9aa0a6;font-size:14px;text-align:center}
+    .hint{font-size:12px;color:#9aa0a6}
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script>
+    // Claves EmailJS (reemplazar)
+    const EMAILJS_PUBLIC_KEY = "REEMPLAZAR_EMAILJS_PUBLIC_KEY";
+    const EMAILJS_SERVICE_ID = "REEMPLAZAR_SERVICE_ID";
+    const EMAILJS_TEMPLATE_ID = "REEMPLAZAR_TEMPLATE_ID";
+    // Webhook opcional
+    const NOTIFY_WEBHOOK_URL = "REEMPLAZAR_WEBHOOK_URL";
+    // Destinatario fijo (tu correo)
+    const TO_EMAIL = "cristobal29.ct@gmail.com";
+
+    document.addEventListener("DOMContentLoaded", () => {
+      try{
+        if(EMAILJS_PUBLIC_KEY && !EMAILJS_PUBLIC_KEY.startsWith("REEMPLAZAR")){
+          emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+        } else {
+          console.warn("Falta configurar EmailJS PUBLIC KEY");
+        }
+      }catch(err){ console.error("Error iniciando EmailJS:", err); }
+    });
+
+    function setStatus(msg, cls){
+      const s = document.getElementById("status");
+      s.textContent = msg;
+      s.className = "status " + (cls||"").trim();
+    }
+
+    function showDebug(obj){
+      const dbg = document.getElementById("debug");
+      dbg.style.display = "block";
+      dbg.textContent = typeof obj === 'string' ? obj : JSON.stringify(obj, null, 2);
+    }
+
+    async function enviarFormulario(e){
+      e.preventDefault();
+      setStatus("Enviando…", "");
+      const btn = document.getElementById("enviar");
+      btn.disabled = true;
+
+      const nombre = document.getElementById("nombre").value.trim();
+      const telefono = document.getElementById("telefono").value.trim();
+      const correo = document.getElementById("correo").value.trim();
+      const motivo = document.getElementById("motivo").value;
+      const mensaje = document.getElementById("mensaje").value.trim();
+      const timestamp = new Date().toISOString();
+
+      const cuerpo = `🧾 NUEVA CONSULTA DMTP
+────────────────────────
+👤 Nombre: ${nombre}
+📞 Teléfono: ${telefono}
+✉️ Correo: ${correo}
+📌 Motivo: ${motivo}
+
+📝 Mensaje:
+${mensaje}
+
+Enviado desde DMTP.cl — ${new Date().toLocaleString()}`;
+
+      try {
+        // EmailJS con destinatario fijo
+        if(EMAILJS_PUBLIC_KEY && !EMAILJS_PUBLIC_KEY.startsWith("REEMPLAZAR")){
+          const emailParams = { to_email: TO_EMAIL, nombre, telefono, correo, motivo, mensaje, cuerpo, timestamp };
+          const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailParams);
+          showDebug({ emailjs_response: res });
+        } else {
+          showDebug("EmailJS no configurado: reemplaza tus claves PUBLIC_KEY/SERVICE_ID/TEMPLATE_ID");
+        }
+
+        // Webhook opcional
+        if(NOTIFY_WEBHOOK_URL && !NOTIFY_WEBHOOK_URL.startsWith("REEMPLAZAR")){
+          const payload = { fuente: "DMTP sitio web", to_email: TO_EMAIL, nombre, telefono, correo, motivo, mensaje, cuerpo, timestamp };
+          try {
+            const r = await fetch(NOTIFY_WEBHOOK_URL, {
+              method: "POST",
+              headers: { "Content-Type": "application/json" },
+              body: JSON.stringify(payload),
+              mode: "cors"
+            });
+            showDebug({ webhook_status: r.status });
+          } catch (werr){
+            try{
+              const ok = navigator.sendBeacon(NOTIFY_WEBHOOK_URL, new Blob([JSON.stringify(payload)], {type: 'text/plain'}));
+              showDebug({ webhook_sendBeacon: ok });
+            }catch(be){ showDebug({ webhook_beacon_error: String(be) }); }
+          }
+        }
+
+        setStatus("¡Gracias! Tu mensaje fue enviado.", "ok");
+        e.target.reset();
+      } catch (err){
+        console.error(err);
+        setStatus("Hubo un problema al enviar. Revisa las claves o intenta WhatsApp.", "err");
+        showDebug({ error: String(err) });
+      } finally {
+        btn.disabled = false;
+      }
+    }
+  </script>
 </head>
 <body>
   <header>
@@ -59,20 +162,37 @@
 
     <div class="card">
       <h2>Envíanos un mensaje</h2>
-      <form action="mailto:cristobal29.ct@gmail.com" method="post" enctype="text/plain">
+      <form onsubmit="enviarFormulario(event)">
         <label for="nombre">Nombre:</label>
         <input type="text" id="nombre" name="nombre" required>
 
         <label for="telefono">Número de contacto:</label>
-        <input type="tel" id="telefono" name="telefono" required>
+        <input type="tel" id="telefono" name="telefono" required inputmode="tel" placeholder="+56 9 ...">
 
         <label for="correo">Correo electrónico:</label>
         <input type="email" id="correo" name="correo" required>
 
-        <label for="mensaje">Cuéntanos tu problema:</label>
-        <textarea id="mensaje" name="mensaje" required></textarea>
+        <label for="motivo">Motivo:</label>
+        <select id="motivo" name="motivo" required>
+          <option value="Asesorías">Asesorías</option>
+          <option value="Proyectos — Matrimonios">Proyectos — Matrimonios</option>
+          <option value="Proyectos — Platos del chef">Proyectos — Platos del chef</option>
+          <option value="Proyectos — Cenas de maridajes">Proyectos — Cenas de maridajes</option>
+          <option value="Otro">Otro</option>
+        </select>
 
-        <button type="submit">Enviar mensaje</button>
+        <label for="mensaje">Cuéntanos tu problema:</label>
+        <textarea id="mensaje" name="mensaje" required placeholder="Formato sugerido:
+- ¿Qué necesitas?
+- Ciudad/fecha tentativas
+- Nº de personas / presupuesto aprox.
+- Restricciones alimentarias
+- Cómo prefieres que te contactemos"></textarea>
+
+        <button id="enviar" type="submit">Enviar mensaje</button>
+        <div class="status hint" id="status">El envío genera un correo a cristobal29.ct@gmail.com y puede notificar al celular.</div>
+        <button type="button" class="toggle-debug" onclick="document.getElementById('debug').style.display = (document.getElementById('debug').style.display==='block'?'none':'block');">Ver/Ocultar debug</button>
+        <div id="debug" class="debug"></div>
       </form>
     </div>
   </main>
@@ -81,8 +201,6 @@
     © <span id="y"></span> DMTP • Hecho con ♥ en Chile · <a href="index.html">Inicio</a>
   </footer>
 
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
+  <script> document.getElementById('y').textContent = new Date().getFullYear(); </script>
 </body>
 </html>

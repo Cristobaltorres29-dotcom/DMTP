@@ -1,0 +1,28 @@
+<!-- EmailJS Template HTML para DMTP -->
+<table width="100%" cellpadding="0" cellspacing="0" style="font-family:Inter,Arial,sans-serif;background:#0b0b0b;color:#e8eaed;padding:20px">
+  <tr>
+    <td align="center">
+      <table width="640" cellpadding="0" cellspacing="0" style="background:#141414;border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:20px">
+        <tr>
+          <td>
+            <h2 style="margin:0 0 6px;color:#a3e635">Nueva consulta — DMTP</h2>
+            <p style="margin:0 0 16px;color:#c9cccf">Destino: {{to_email}}</p>
+
+            <table width="100%" cellpadding="0" cellspacing="0" style="margin:10px 0 16px">
+              <tr><td style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)"><strong>Nombre:</strong> {{nombre}}</td></tr>
+              <tr><td style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)"><strong>Teléfono:</strong> {{telefono}}</td></tr>
+              <tr><td style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)"><strong>Correo:</strong> {{correo}}</td></tr>
+              <tr><td style="padding:8px 0;border-bottom:1px solid rgba(255,255,255,.08)"><strong>Motivo:</strong> {{motivo}}</td></tr>
+            </table>
+
+            <p style="margin:0 0 6px"><strong>Mensaje:</strong></p>
+            <pre style="white-space:pre-wrap;background:#101010;border-radius:8px;padding:12px;color:#e8eaed">{{mensaje}}</pre>
+
+            <p style="margin:16px 0 0;color:#9aa0a6">Timestamp: {{timestamp}}</p>
+          </td>
+        </tr>
+      </table>
+      <p style="color:#9aa0a6;font-size:12px;margin-top:10px">© DMTP — De Mi Mente a Tu Plato</p>
+    </td>
+  </tr>
+</table>

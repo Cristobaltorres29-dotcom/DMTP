@@ -1,0 +1,13 @@
+NUEVA CONSULTA — DMTP
+----------------------
+Destino: {{to_email}}
+
+Nombre: {{nombre}}
+Teléfono: {{telefono}}
+Correo: {{correo}}
+Motivo: {{motivo}}
+
+Mensaje:
+{{mensaje}}
+
+Timestamp: {{timestamp}}
