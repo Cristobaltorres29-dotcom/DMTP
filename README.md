@@ -1,16 +1,15 @@
-# De Mi Mente a Tu Plato (DMTP)
+# DMTP Website
 
-Este repositorio contiene el sitio web de **DMTP** publicado en GitHub Pages.
+## Instrucciones
 
-## Archivos
-- `index.html` — Inicio (historia + carrusel + accesos rápidos)
-- `planes.html` — Asesorías (Basic, Pro, Master, precios y enlaces)
-- `proyectos.html` — Proyectos (Matrimonios, Platos del chef, Cenas de maridajes con agenda)
-- `contacto.html` — Contacto (correo, WhatsApp, Instagram y formulario)
+1. Sube todos los archivos `.html` de este paquete a tu repositorio GitHub (rama main).
+2. También sube las imágenes:
+   - `IMG_9480.jpeg` (para el carrusel en index.html)
+   - `IMG_9559.jpeg` (para la sección de Cenas de maridajes en proyectos.html)
+3. Las imágenes deben estar en la **raíz del repositorio**, junto a los `.html`.
+4. Refresca tu página en GitHub Pages:  
+   `https://cristobaltorres29-dotcom.github.io/DMTP/index.html`
 
-## Publicar en GitHub Pages
-1. Sube estos archivos a la **raíz** del repositorio.
-2. En **Settings → Pages** selecciona: _Deploy from a branch_, **Branch** `main`, **Folder** `/root`.
-3. Abre tu sitio en `https://tuusuario.github.io/` (si el repo es `tuusuario.github.io`) o `https://tuusuario.github.io/NOMBRE-REPO/`.
 
-Hecho con ❤️ en Chile.
+
+Imágenes ubicadas en `/img` y referenciadas como `img/IMG_XXXX.jpeg`.

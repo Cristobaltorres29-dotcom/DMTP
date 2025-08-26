@@ -12,41 +12,91 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <style>
-    :root{ --bg:#0b0b0b; --card:#141414; --muted:#9aa0a6; --text:#e8eaed; --brand:#84cc16; --accent:#a3e635; --radius:20px; --shadow:0 10px 30px rgba(0,0,0,.35); }
+    :root{
+  --bg:#0a0a0f;
+  --card:#141622;
+  --text:#f5f5f7;
+  --muted:#9fa6b2;
+  --brand-1:#a855f7; /* violet */
+  --brand-2:#ec4899; /* fuchsia */
+  --brand-3:#3b82f6; /* electric blue */
+  --radius:20px;
+  --shadow:0 14px 40px rgba(0,0,0,.6);
+}
     *{box-sizing:border-box}
     html,body{margin:0;height:100%;scroll-behavior:smooth}
     body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
-    a{color:var(--accent);text-decoration:none}
+    a{color:var(--text);text-decoration:none}
     .wrap{max-width:900px;margin:0 auto;padding:24px}
     header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,rgba(11,11,11,.95),rgba(11,11,11,.75),transparent);backdrop-filter:saturate(1.2) blur(6px)}
     .nav{display:flex;align-items:center;gap:18px;justify-content:space-between}
     .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.5px}
-    .brand-dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--accent))}
+    .brand-dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,#f5f7fa,#d4af37),var(--brand-2),var(--brand-3)),var(--accent))}
     .links a{padding:10px 12px;border-radius:10px;color:var(--text)}
-    .links a:hover{background:rgba(255,255,255,.06)}
-    h1{font-size:clamp(28px,4vw,46px);margin:20px 0;color:var(--accent)}
+    .links a:hover{background:rgba(255,255,255,.08); box-shadow:0 0 0 1px rgba(255,255,255,.12) inset}
+    h1{font-size:clamp(28px,4vw,46px);margin:20px 0;color:var(--text)}
     .card{background:var(--card);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.08);margin-bottom:20px}
     form{display:grid;gap:14px}
     label{font-weight:600}
     input,textarea,select{padding:10px;border-radius:10px;border:none;background:#1f1f1f;color:#e8eaed;font-size:15px}
     textarea{min-height:140px;resize:vertical}
     .row{display:flex;gap:10px;flex-wrap:wrap}
-    button{background:linear-gradient(135deg,var(--brand),var(--accent));color:#0b0b0b;font-weight:700;border:none;padding:12px;border-radius:12px;cursor:pointer}
-    .secondary{background:rgba(255,255,255,.08);color:#e8eaed}
+    button{background:linear-gradient(135deg,#f5f7fa,#d4af37),var(--brand-2),var(--brand-3)),var(--accent));color:#0b0b0b;font-weight:700;border:none;padding:12px;border-radius:12px;cursor:pointer;transition:transform .15s ease, box-shadow .2s ease}
+    .secondary{background:linear-gradient(135deg,#f5f7fa,#c0c0c0);color:#0a0a0a; /* overwritten */ background:rgba(255,255,255,.08);color:#e8eaed}
     .status{margin-top:8px;font-size:14px}
     .ok{color:#a3e635}.err{color:#ff7b7b}
     .debug{font-family:ui-monospace,Consolas,monospace;font-size:12px;background:#0f0f0f;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px;color:#c9cccf;display:none;white-space:pre-wrap}
     .toggle-debug{background:rgba(255,255,255,.08);color:#c9cccf;border:none;padding:6px 10px;border-radius:8px;cursor:pointer;font-size:12px}
     footer{margin:36px 0 20px;color:#9aa0a6;font-size:14px;text-align:center}
     .hint{font-size:12px;color:#9aa0a6}
-  </style>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  
+    button:hover{ transform:translateY(-1px); box-shadow:0 8px 26px rgba(168,85,247,.25), 0 0 0 1px rgba(236,72,153,.18) }
+    .btn:hover,.cta:hover{ transform:translateY(-1px); box-shadow:0 8px 26px rgba(168,85,247,.25), 0 0 0 1px rgba(236,72,153,.18) }
+    .brand-dot{box-shadow:0 0 24px rgba(59,130,246,.35)}
+  
+/* --- DMTP v17: botones alto contraste sobre fondo oscuro --- */
+.cta, .btn, button {
+  background: linear-gradient(135deg, #f5f7fa, #d4af37);
+  color: #000; /* alto contraste */
+  font-weight: 700;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.cta:hover, .btn:hover, button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(212,175,55,.45), 0 0 12px rgba(255,255,255,.25);
+}
+.secondary {
+  background: #c0c0c0;
+  color: #000;
+}
+/* --- fin override --- */
+
+
+/* --- Consistencia global de botones (silver→gold) --- */
+.cta, .btn, button {
+  background: linear-gradient(135deg, #f5f7fa, #d4af37);
+  color: #000;
+  font-weight: 700;
+  border: none;
+  padding: 12px 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform .15s ease, box-shadow .2s ease;
+}
+.cta:hover, .btn:hover, button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(212,175,55,.45), 0 0 12px rgba(255,255,255,.25);
+}
+.secondary { background: #c0c0c0; color: #000; }
+
+</style>
+  
   <script>
-    const EMAILJS_PUBLIC_KEY = "xm7X8JLaMsXZEeuDz";
-    const EMAILJS_SERVICE_ID = "gmail_DMTP";
-    const EMAILJS_TEMPLATE_ID = "template_kc5ce9r";
-    const TO_EMAIL = "cristobal29.ct@gmail.com";
-    const WSP_NUM = "56920037224"; // sin '+' para wa.me
+    const WSP_NUM = "56920037224";
 
     document.addEventListener("DOMContentLoaded", () => {
       try { emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); } catch(e){}
@@ -88,25 +138,7 @@ ${mensaje}`;
       setStatus("Abriendo WhatsApp con tu mensaje…", "ok");
     }
 
-    async function enviarPorEmail(e){
-      e.preventDefault();
-      setStatus("Enviando por EmailJS…", "");
-      const btn = document.getElementById("enviar-email");
-      btn.disabled = true;
-      const { nombre, telefono, correo, motivo, mensaje, cuerpo } = compilarMensaje();
-      const timestamp = new Date().toISOString();
-      try{
-        const emailParams = { to_email: TO_EMAIL, nombre, telefono, correo, motivo, mensaje, cuerpo, timestamp };
-        const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailParams);
-        showDebug({ emailjs_response: res });
-        setStatus("¡Gracias! Tu mensaje fue enviado por correo.", "ok");
-      }catch(err){
-        setStatus("Hubo un problema al enviar por correo. Prueba WhatsApp.", "err");
-        showDebug({ error: String(err) });
-      }finally{
-        btn.disabled = false;
-      }
-    }
+        }
   </script>
 </head>
 <body>
@@ -123,7 +155,14 @@ ${mensaje}`;
   </header>
 
   <main class="wrap">
-    <h1>Contacto</h1>
+    <div class="toolbar" style="margin:12px 0 8px;display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+      <a class="btn" href="index.html">Inicio</a>
+      <a class="btn" href="planes.html">Asesorías</a>
+      <a class="btn" href="proyectos.html">Proyectos</a>
+      <a class="btn" href="contacto.html">Contacto</a>
+    </div>
+
+<h1>Contacto</h1>
 
     <div class="card">
       <h2>Información directa</h2>
@@ -158,14 +197,22 @@ ${mensaje}`;
 
         <div class="row">
           <button id="enviar-wsp" type="button" onclick="enviarPorWhatsApp()">Enviar por WhatsApp</button>
-          <button id="enviar-email" type="submit" class="secondary">Enviar por Email</button>
+          
           <button type="button" class="toggle-debug" onclick="document.getElementById('debug').style.display = (document.getElementById('debug').style.display==='block'?'none':'block');">Ver/Ocultar debug</button>
         </div>
-        <div class="status hint" id="status">Puedes enviar por WhatsApp (rápido) o por correo (EmailJS).</div>
+        <div class="status hint" id="status">Envía tu mensaje directo por WhatsApp.</div>
         <div id="debug" class="debug"></div>
       </form>
     </div>
-  </main>
+
+    <div class="toolbar" style="margin:20px 0;display:flex;gap:12px;flex-wrap:wrap;justify-content:center">
+      <a class="btn" href="index.html">Inicio</a>
+      <a class="btn" href="planes.html">Asesorías</a>
+      <a class="btn" href="proyectos.html">Proyectos</a>
+      <a class="btn" href="contacto.html">Contacto</a>
+    </div>
+
+</main>
 
   <footer>
     © <span id="y"></span> DMTP • Hecho con ♥ en Chile · <a href="index.html">Inicio</a>
