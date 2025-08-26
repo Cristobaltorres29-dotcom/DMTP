@@ -1,1 +1,109 @@
-<!-- usa el planes.html de v5 -->
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Planes de Asesorías — DMTP</title>
+  <meta name="description" content="Planes de asesorías gastronómicas: Basic, Pro y Master. Por Cristóbal Torres." />
+  <meta property="og:title" content="Planes de Asesorías — DMTP" />
+  <meta property="og:description" content="Planes de asesorías gastronómicas: Basic, Pro y Master." />
+  <meta property="og:type" content="website" />
+  <meta name="theme-color" content="#0b0b0b" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <style>
+    :root{ --bg:#0b0b0b; --card:#141414; --muted:#9aa0a6; --text:#e8eaed; --brand:#84cc16; --accent:#a3e635; --radius:20px; --shadow:0 10px 30px rgba(0,0,0,.35); }
+    *{box-sizing:border-box}
+    html,body{margin:0;height:100%;scroll-behavior:smooth}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,"Helvetica Neue",sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+    a{color:var(--accent);text-decoration:none}
+    .wrap{max-width:1100px;margin:0 auto;padding:24px}
+    h1{font-size:clamp(28px,4vw,42px);line-height:1.2;margin:20px 0;color:var(--accent)}
+    h2{font-size:clamp(22px,3vw,28px);margin:10px 0;color:var(--text)}
+    h3{margin:10px 0;color:var(--accent)}
+    .card{background:var(--card);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06);margin-bottom:24px}
+    ul{margin:0;padding-left:18px}
+    .note{font-size:13px;color:#9aa0a6}
+    .back{display:inline-block;margin-top:20px;color:var(--accent)}
+    .cta{display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#0a0a0a;padding:10px 14px;border-radius:12px;font-weight:700;margin-top:10px}
+    .price{font-weight:800;color:var(--accent)}
+    header .links a{padding:10px 12px;border-radius:10px;color:var(--text)}
+    header{position:sticky;top:0;z-index:10;background:linear-gradient(180deg,rgba(11,11,11,.95),rgba(11,11,11,.75),transparent);backdrop-filter:saturate(1.2) blur(6px)}
+    .nav{display:flex;align-items:center;gap:18px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;letter-spacing:.5px}
+    .brand-dot{width:10px;height:10px;border-radius:999px;background:linear-gradient(135deg,var(--brand),var(--accent))}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand"><span class="brand-dot" aria-hidden="true"></span> DMTP</div>
+      <nav class="links" aria-label="Navegación principal">
+        <a href="index.html">Inicio</a>
+        <a href="planes.html">Asesorías</a>
+        <a href="proyectos.html">Proyectos</a>
+        <a href="contacto.html">Contacto</a>
+      </nav>
+      <a class="cta" href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank">Agendar</a>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>Planes de Asesorías Gastronómicas</h1>
+
+    <div class="card" id="basic">
+      <h2>Plan Basic — Primeros pasos en gastronomía <span class="price">· $75.000 CLP</span></h2>
+      <p><em>Ideal para quienes recién comienzan su proyecto o buscan ordenar una idea gastronómica.</em></p>
+      <h3>Incluye:</h3>
+      <ul>
+        <li>2 sesiones online de 1 hora.</li>
+        <li>Introducción al costeo de platos y control básico de inventario.</li>
+        <li>Tips para elegir proveedores y negociar precios.</li>
+        <li>Consejos para diseñar una carta simple y atractiva.</li>
+      </ul>
+      <p><strong>Entregable:</strong><br>📄 Plantilla de ficha técnica + plan básico de control de costos.</p>
+      <p><strong>Objetivo:</strong><br>Dar las herramientas iniciales para que tu cocina o idea de negocio empiece ordenada, rentable y lista para crecer.</p>
+      <a class="cta" href="https://link.mercadopago.cl/dmtp" target="_blank">Pagar</a>
+      <a class="cta" href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank">Agendar</a>
+    </div>
+
+    <div class="card" id="pro">
+      <h2>🔹 Plan Pro — Tu negocio en marcha <span class="price">· $200.000 CLP</span></h2>
+      <p><em>Diseñado para dueños de restaurantes, food trucks o proyectos gastronómicos que ya están funcionando, pero necesitan ordenar procesos y aumentar rentabilidad.</em></p>
+      <h3>Incluye:</h3>
+      <ul>
+        <li>Acompañamiento de 1 mes.</li>
+        <li>4 sesiones semanales (presencial u online) + soporte directo por WhatsApp.</li>
+        <li>Auditoría de carta y procesos de cocina.</li>
+        <li>Optimización de compras y negociación con proveedores.</li>
+        <li>Estrategias para aumentar rentabilidad sin perder calidad.</li>
+        <li>Diseño de experiencia de cliente y mejora del flujo de servicio.</li>
+      </ul>
+      <p><strong>Entregable:</strong><br>📄 Informe de diagnóstico completo + plan de mejora en costos, procesos y carta.</p>
+      <p><strong>Objetivo:</strong><br>Pasar de “sobrevivir” a ser rentable y sostenible, con una operación clara y eficiente.</p>
+      <a class="cta" href="https://link.mercadopago.cl/dmtp" target="_blank">Pagar</a>
+      <a class="cta" href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank">Agendar</a>
+    </div>
+
+    <div class="card" id="master">
+      <h2>🔹 Plan Master — Escala tu proyecto gastronómico <span class="price">· $600.000 CLP</span></h2>
+      <p><em>Pensado para restaurantes consolidados, inversionistas y emprendedores visionarios que quieren llevar su proyecto al siguiente nivel.</em></p>
+      <h3>Incluye:</h3>
+      <ul>
+        <li>Acompañamiento durante 3 meses (híbrido: presencial + online).</li>
+        <li>Sesiones de planificación estratégica y seguimiento continuo.</li>
+        <li>Desarrollo de un plan de negocio completo (visión, carta, mercado y costos).</li>
+        <li>Diseño y consolidación de un concepto gastronómico diferenciador.</li>
+        <li>Formación y capacitación de equipo (mise en place, roles, control operativo).</li>
+        <li>Innovación aplicada: modelos de negocio alternativos (dark kitchens, food trucks, experiencias privadas, menús degustación).</li>
+      </ul>
+      <p><strong>Entregable:</strong><br>📑 Dossier estratégico + plan financiero + manual operativo inicial.</p>
+      <p><strong>Objetivo:</strong><br>Transformar tu idea o restaurante en un negocio sólido, escalable y con identidad propia, listo para competir en el mercado gastronómico actual.</p>
+      <a class="cta" href="https://link.mercadopago.cl/dmtp" target="_blank">Pagar</a>
+      <a class="cta" href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank">Agendar</a>
+    </div>
+
+    <a href="index.html" class="back">⬅ Volver a inicio</a>
+  </main>
+</body>
+</html>
