@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Proyectos — DMTP</title>
-  <meta name="description" content="Cenas de maridaje clandestinas con productos locales: experiencias íntimas y elegantes por DMTP." />
+  <meta name="description" content="Cenas clandestinas, maridajes privados y experiencias gastronómicas con productos locales. Curatoría, relato y ejecución por DMTP." />
   <meta property="og:title" content="Proyectos — DMTP" />
-  <meta property="og:description" content="Cenas de maridaje clandestinas con productos locales: experiencias íntimas y elegantes." />
+  <meta property="og:description" content="Experiencias culinarias íntimas: 5 tiempos, maridajes y storytelling con productos locales." />
   <meta property="og:type" content="website" />
   <meta name="theme-color" content="#0b0b0b" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -29,15 +29,27 @@
     h1{font-size:clamp(28px,4vw,46px);line-height:1.2;margin:20px 0}
     h2{font-size:clamp(22px,3vw,30px);margin:14px 0}
     .lead{font-size:18px;color:#c9cccf;max-width:900px}
-    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:18px}
-    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06)}
-    .caption{margin-top:8px;color:#c9cccf}
-    .badge{display:inline-block;background:rgba(255,255,255,.08);padding:6px 10px;border-radius:999px;font-size:12px;color:#c7cacf}
     .toolbar{display:flex;gap:12px;flex-wrap:wrap;margin:18px 0}
     .toolbar a{background:var(--accent);color:#0b0b0b;padding:8px 12px;border-radius:10px;font-weight:700}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .card{background:var(--card);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);border:1px solid rgba(255,255,255,.06)}
+    .meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:10px 0;color:#c9cccf;font-size:14px}
+    .badge{display:inline-block;background:rgba(255,255,255,.08);padding:6px 10px;border-radius:999px;font-size:12px;color:#c7cacf}
+    .steps{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin:24px 0}
+    .step{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:14px}
+    .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    details{background:#121212;border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:12px}
+    summary{cursor:pointer;font-weight:700;color:#e8eaed}
     footer{margin:36px 0 20px;color:#9aa0a6;font-size:14px}
-    @media (max-width:900px){ .grid-3{grid-template-columns:1fr 1fr} }
-    @media (max-width:640px){ .grid-3{grid-template-columns:1fr} .links{display:none} }
+    @media (max-width:900px){
+      .grid-3{grid-template-columns:1fr 1fr}
+      .steps{grid-template-columns:1fr 1fr;gap:10px}
+      .gallery{grid-template-columns:1fr 1fr}
+    }
+    @media (max-width:640px){
+      .links{display:none}
+      .grid-3,.gallery{grid-template-columns:1fr}
+    }
   </style>
 </head>
 <body>
@@ -55,44 +67,92 @@
   </header>
 
   <main class="wrap">
+    <!-- HERO -->
     <h1>Proyectos — Cenas de maridaje</h1>
-    <p class="lead">Diseñamos <strong>experiencias clandestinas</strong> en locaciones secretas: <strong>5 tiempos</strong> con maridaje, relatos que conectan territorio y producto, y una estética sobria para que el protagonista sea el <strong>origen local</strong>.</p>
+    <p class="lead">Experiencias íntimas y elegantes en locaciones secretas: <strong>5 tiempos</strong> con maridajes, relato gastronómico y <strong>producto local</strong> como protagonista.</p>
 
-    <div class="toolbar">
+    <!-- OFERTAS -->
+    <h2>Nuestras experiencias</h2>
+    <div class="grid-3" style="margin-top:12px">
+      <!-- Cenas clandestinas -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1528017482769-62145720b78e?q=80&w=1600&auto=format&fit=crop" alt="Cena clandestina" />
+        <h3 style="margin:10px 0">Cenas clandestinas</h3>
+        <p>Menú de 5 tiempos con maridaje y storytelling culinario. Locación secreta y dirección de arte.</p>
+        <div class="meta">
+          <span>Capacidad: 8–16 pax</span><span>Duración: 2–3 h</span>
+          <span>Enfoque: territorio</span><span>Servicio: completo</span>
+        </div>
+        <div class="toolbar">
+          <a href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank">Agendar llamada</a>
+          <a href="https://link.mercadopago.cl/dmtp" target="_blank">Pagar reserva</a>
+        </div>
+      </article>
+
+      <!-- Maridajes privados -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?q=80&w=1600&auto=format&fit=crop" alt="Maridaje privado" />
+        <h3 style="margin:10px 0">Maridajes privados</h3>
+        <p>Curaduría de vinos de autor y platos de temporada. Perfecto para celebraciones en casa o espacio elegido.</p>
+        <div class="meta">
+          <span>Capacidad: 6–12 pax</span><span>Duración: 2 h</span>
+          <span>Enfoque: baja intervención</span><span>Set-up: in situ</span>
+        </div>
+        <div class="toolbar">
+          <a href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank">Agendar llamada</a>
+          <a href="https://link.mercadopago.cl/dmtp" target="_blank">Pagar reserva</a>
+        </div>
+      </article>
+
+      <!-- Experiencia corporativa -->
+      <article class="card">
+        <img src="https://images.unsplash.com/photo-1549887534-1541e9326608?q=80&w=1600&auto=format&fit=crop" alt="Experiencia corporativa" />
+        <h3 style="margin:10px 0">Experiencias corporativas</h3>
+        <p>Activaciones para equipos: catas guiadas, menú territorial y relato de marca. Formato adaptable.</p>
+        <div class="meta">
+          <span>Capacidad: 12–40 pax</span><span>Duración: 1,5–2 h</span>
+          <span>Formato: taller/degustación</span><span>Informe post</span>
+        </div>
+        <div class="toolbar">
+          <a href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank">Agendar llamada</a>
+          <a href="contacto.html">Solicitar propuesta</a>
+        </div>
+      </article>
+    </div>
+
+    <!-- FLUJO -->
+    <h2 style="margin-top:26px">Cómo trabajamos</h2>
+    <div class="steps">
+      <div class="step"><strong>1. Brief</strong><br>Reunión para entender objetivo, asistentes y locación.</div>
+      <div class="step"><strong>2. Propuesta</strong><br>Concepto, menú tentativo y maridajes.</div>
+      <div class="step"><strong>3. Producción</strong><br>Compras a productores locales y mise en place.</div>
+      <div class="step"><strong>4. Experiencia</strong><br>Servicio completo, relatos y maridaje guiado.</div>
+      <div class="step"><strong>5. Post-evento</strong><br>Resumen, recomendaciones y próximos pasos.</div>
+    </div>
+
+    <!-- GALERÍA -->
+    <h2>Galería</h2>
+    <div class="gallery" style="margin-top:12px">
+      <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1600&auto=format&fit=crop" alt="Huerta y temporada" />
+      <img src="https://images.unsplash.com/photo-1514511547117-f9c2f2b1a3f5?q=80&w=1600&auto=format&fit=crop" alt="Cordero y brasas" />
+      <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop" alt="Quesos y charcutería" />
+      <img src="https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?q=80&w=1600&auto=format&fit=crop" alt="Vinos de autor" />
+      <img src="https://images.unsplash.com/photo-1528017482769-62145720b78e?q=80&w=1600&auto=format&fit=crop" alt="Mesa íntima" />
+      <img src="https://images.unsplash.com/photo-1549887534-1541e9326608?q=80&w=1600&auto=format&fit=crop" alt="Pacífico chileno" />
+    </div>
+
+    <!-- FAQ -->
+    <h2 style="margin-top:26px">Preguntas frecuentes</h2>
+    <div class="grid-3" style="margin-top:12px">
+      <details class="card"><summary>¿Dónde se realizan?</summary><p>Trabajamos en locaciones secretas o en tu espacio (casa, bodega, sala). Definimos logística en la reunión inicial.</p></details>
+      <details class="card"><summary>¿Adaptan el menú?</summary><p>Sí. Vegetarianos, sin gluten u otras restricciones se contemplan en la propuesta.</p></details>
+      <details class="card"><summary>¿Cómo reservo?</summary><p>Puedes <a href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank">agendar una llamada</a> o directamente <a href="https://link.mercadopago.cl/dmtp" target="_blank">pagar la reserva</a>. Te enviaremos confirmación y próximos pasos.</p></details>
+    </div>
+
+    <!-- CTA FINAL -->
+    <div class="toolbar" style="margin-top:22px">
       <a href="https://calendar.app.google/yVmnyttpWu9Xt2236" target="_blank">Agendar llamada</a>
       <a href="https://link.mercadopago.cl/dmtp" target="_blank">Pagar reserva</a>
-      <a href="contacto.html">Escríbenos</a>
-    </div>
-
-    <div class="grid-3">
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1549887534-1541e9326608?q=80&w=1600&auto=format&fit=crop" alt="Ostras y maridaje costero" />
-        <div class="caption"><span class="badge">Pacífico chileno</span><br>Ostras, locos y pescados azules con vinos costeros. Frescura, yodo y textura.</div>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1600&auto=format&fit=crop" alt="Huerta estacional" />
-        <div class="caption"><span class="badge">Huerta & estación</span><br>Verduras de temporada, hierbas nativas y fermentos suaves.</div>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1514511547117-f9c2f2b1a3f5?q=80&w=1600&auto=format&fit=crop" alt="Cordero a las brasas" />
-        <div class="caption"><span class="badge">Cordillera & fuego</span><br>Cortes largos, brasas y maridajes de altura.</div>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=1600&auto=format&fit=crop" alt="Quesos y charcutería local" />
-        <div class="caption"><span class="badge">Lácteos & charcutería</span><br>Degustaciones con pequeños productores del sur.</div>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1505250469679-203ad9ced0cb?q=80&w=1600&auto=format&fit=crop" alt="Vino en copa" />
-        <div class="caption"><span class="badge">Vinos de autor</span><br>Etiquetas de baja intervención y relatos del viñedo.</div>
-      </article>
-      <article class="card">
-        <img src="https://images.unsplash.com/photo-1528017482769-62145720b78e?q=80&w=1600&auto=format&fit=crop" alt="Mesa íntima" />
-        <div class="caption"><span class="badge">Mesa secreta</span><br>Grupos pequeños, dirección de arte y música curada.</div>
-      </article>
-    </div>
-
-    <div class="toolbar">
-      <a href="planes.html">Ver planes de asesoría</a>
       <a href="index.html">Volver a inicio</a>
     </div>
   </main>
