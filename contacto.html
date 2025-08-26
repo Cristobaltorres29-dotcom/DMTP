@@ -40,20 +40,13 @@
   </style>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
   <script>
-    const EMAILJS_PUBLIC_KEY = "REEMPLAZAR_EMAILJS_PUBLIC_KEY";
-    const EMAILJS_SERVICE_ID = "REEMPLAZAR_SERVICE_ID";
-    const EMAILJS_TEMPLATE_ID = "REEMPLAZAR_TEMPLATE_ID";
-    const NOTIFY_WEBHOOK_URL = "REEMPLAZAR_WEBHOOK_URL"; // opcional
+    const EMAILJS_PUBLIC_KEY = "xm7X8JLaMsXZEeuDz";
+    const EMAILJS_SERVICE_ID = "gmail_DMTP";
+    const EMAILJS_TEMPLATE_ID = "template_kc5ce9r";
     const TO_EMAIL = "cristobal29.ct@gmail.com";
 
     document.addEventListener("DOMContentLoaded", () => {
-      try{
-        if(EMAILJS_PUBLIC_KEY && !EMAILJS_PUBLIC_KEY.startsWith("REEMPLAZAR")){
-          emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
-        } else {
-          console.warn("Falta configurar EmailJS PUBLIC KEY");
-        }
-      }catch(err){ console.error("Error iniciando EmailJS:", err); }
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
     });
 
     function setStatus(msg, cls){
@@ -93,32 +86,9 @@ ${mensaje}
 Enviado desde DMTP.cl — ${new Date().toLocaleString()}`;
 
       try {
-        if(EMAILJS_PUBLIC_KEY && !EMAILJS_PUBLIC_KEY.startsWith("REEMPLAZAR")){
-          const emailParams = { to_email: TO_EMAIL, nombre, telefono, correo, motivo, mensaje, cuerpo, timestamp };
-          const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailParams);
-          showDebug({ emailjs_response: res });
-        } else {
-          showDebug("EmailJS no configurado: reemplaza tus claves PUBLIC_KEY/SERVICE_ID/TEMPLATE_ID");
-        }
-
-        if(NOTIFY_WEBHOOK_URL && !NOTIFY_WEBHOOK_URL.startsWith("REEMPLAZAR")){
-          const payload = { fuente: "DMTP sitio web", to_email: TO_EMAIL, nombre, telefono, correo, motivo, mensaje, cuerpo, timestamp };
-          try {
-            const r = await fetch(NOTIFY_WEBHOOK_URL, {
-              method: "POST",
-              headers: { "Content-Type": "application/json" },
-              body: JSON.stringify(payload),
-              mode: "cors"
-            });
-            showDebug({ webhook_status: r.status });
-          } catch (werr){
-            try{
-              const ok = navigator.sendBeacon(NOTIFY_WEBHOOK_URL, new Blob([JSON.stringify(payload)], {type: 'text/plain'}));
-              showDebug({ webhook_sendBeacon: ok });
-            }catch(be){ showDebug({ webhook_beacon_error: String(be) }); }
-          }
-        }
-
+        const emailParams = { to_email: TO_EMAIL, nombre, telefono, correo, motivo, mensaje, cuerpo, timestamp };
+        const res = await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, emailParams);
+        showDebug({ emailjs_response: res });
         setStatus("¡Gracias! Tu mensaje fue enviado.", "ok");
         e.target.reset();
       } catch (err){
@@ -176,15 +146,10 @@ Enviado desde DMTP.cl — ${new Date().toLocaleString()}`;
         </select>
 
         <label for="mensaje">Cuéntanos tu problema:</label>
-        <textarea id="mensaje" name="mensaje" required placeholder="Formato sugerido:
-- ¿Qué necesitas?
-- Ciudad/fecha tentativas
-- Nº de personas / presupuesto aprox.
-- Restricciones alimentarias
-- Cómo prefieres que te contactemos"></textarea>
+        <textarea id="mensaje" name="mensaje" required></textarea>
 
         <button id="enviar" type="submit">Enviar mensaje</button>
-        <div class="status hint" id="status">El envío genera un correo a cristobal29.ct@gmail.com y puede notificar al celular.</div>
+        <div class="status hint" id="status">El envío genera un correo directo a cristobal29.ct@gmail.com</div>
         <button type="button" class="toggle-debug" onclick="document.getElementById('debug').style.display = (document.getElementById('debug').style.display==='block'?'none':'block');">Ver/Ocultar debug</button>
         <div id="debug" class="debug"></div>
       </form>
